@@ -42,10 +42,12 @@ export class personControllers {
     }
 
     await this.model.update({ id }, body);
-    return { data:  await this.model.findOne({ where: { id } }); };
+    return { data: await this.model.findOne({ where: { id } }) };
   }
   @Delete(':id')
-  public async delete(@Param('id', ParseIntPipe) id:number): Promise<{data: string}> {
+  public async delete(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<{ data: string }> {
     const person = await this.model.findOne({ where: { id } });
 
     if (!person) {

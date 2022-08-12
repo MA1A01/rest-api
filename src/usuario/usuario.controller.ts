@@ -13,3 +13,5 @@ export class UsuarioService {
     return this.usuarioRepository.find();
   }
 }
+
+export class UsuarioController {}
